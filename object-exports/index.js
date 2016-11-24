@@ -1,8 +1,11 @@
-export default async ({ loadTests }) => {
+import RequestResponseTestsProvider from './request_response';
+import SettingsTestsProvider from './request_response';
+
+async function TestProvider({ loadTests }) {
   return {
     'console app': {
-      ...await loadTests(TestProvider2),
-      ...await loadTests(TestProvider3),
+      ...await loadTests(RequestResponseTestsProvider),
+      ...await loadTests(SettingsTestsProvider),
     }
   };
 };
